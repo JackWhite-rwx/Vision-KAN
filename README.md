@@ -1,4 +1,4 @@
-# Vision-KAN
+# Vision KAN
 We try to explore the application of KAN in visual tasks
 
 
