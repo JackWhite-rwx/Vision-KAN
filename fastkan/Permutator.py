@@ -162,30 +162,30 @@ def KanPermutator(*, image_size, patch_size, input_dim, dim, depth, segments, nu
     return nn.Sequential(
         Rearrange('b c (h p1) (w p2) -> b h w (p1 p2 c)', p1 = patch_size, p2 = patch_size),
         Rearrange('b h w (p1 p2 c) -> b (h w) (p1 p2 c)', p1=patch_size, p2=patch_size),
-        FastKAN([(patch_size ** 2) * input_dim, dim]),#在channel维度做隐式函数嵌入
+        FastKANLayer((patch_size ** 2) * input_dim, dim),#在channel维度做隐式函数嵌入
         Rearrange('b (h w) (p1 p2 c) -> b h w (p1 p2 c)', p1=patch_size, p2=patch_size, h=height, w=width),
         *[nn.Sequential(
             PreNormResidual(dim, nn.Sequential(
                 ParallelSum(
                     nn.Sequential(
                         Rearrange('b h w (c s) -> b (w c) (h s)', s = s),
-                        FastKAN([height * s, height * s]),
+                        FastKANLayer(height * s, height * s),
                         Rearrange('b (w c) (h s) -> b h w (c s)', s = s, h=height, w=width),
                     ),
                     nn.Sequential(
                         Rearrange('b h w (c s) -> b (h c) (w s)', s = s),
-                        FastKAN([width * s, width * s]),
+                        FastKANLayer(width * s, width * s),
                         Rearrange('b (h c) (w s) -> b h w (c s)', s = s, h=height, w=width),
                     ),
                     nn.Sequential(
                         Rearrange('b h w c -> b (h w) c'),
-                        FastKAN([dim, dim]),
+                        FastKANLayer(dim, dim),
                         Rearrange('b (h w) c -> b h w c', h=height, w=width),
                     )
                 ),
                 nn.Sequential(
                     Rearrange('b h w c -> b (h w) c'),
-                    FastKAN([dim, dim]),
+                    FastKANLayer(dim, dim),
                     Rearrange('b (h w) c -> b h w c', h=height, w=width),
                 )
             )),
@@ -200,7 +200,7 @@ def KanPermutator(*, image_size, patch_size, input_dim, dim, depth, segments, nu
         nn.LayerNorm(dim),
         Reduce('b h w c -> b c', 'mean'),
         # nn.Linear(dim, num_classes)
-        FastKAN([dim, num_classes]),
+        FastKANLayer(dim, num_classes),
         # Rearrange('b h w (p1 p2 c) -> b c (h p1) (w p2)', p1=patch_size, p2=patch_size)
     )
 
