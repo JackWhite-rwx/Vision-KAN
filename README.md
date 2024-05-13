@@ -1,6 +1,10 @@
 # Vision-KAN
 We try to explore the application of KAN in visual tasks
 
+# todo task
+low level task(super resolution)\\
+segment task
+
 use:
 ```bash
 python train_cifar10.py
