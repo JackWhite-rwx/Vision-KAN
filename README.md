@@ -11,7 +11,7 @@ python train_cifar10.py
 # todo task
 low level task(super resolution)
 
-segment task
+semantic segmentation
 
 # thansk:
 [KAN](https://github.com/KindXiaoming/pykan),
