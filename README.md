@@ -8,6 +8,6 @@ python train_cifar10.py
 
 
 thansk:
-[KAN](https://github.com/KindXiaoming/pykan)
-[fast kan](https://github.com/ZiyaoLi/fast-kan)
+[KAN](https://github.com/KindXiaoming/pykan),
+[fast kan](https://github.com/ZiyaoLi/fast-kan),
 [MLP Mixer](https://github.com/lucidrains/mlp-mixer-pytorch)
