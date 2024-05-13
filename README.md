@@ -3,7 +3,7 @@ We try to explore the application of KAN in visual tasks
 
 use:
 ```bash
-python train.py
+python train_cifar10.py
 ```
 
 
