@@ -26,8 +26,8 @@ valloader = DataLoader(valset, batch_size=64, shuffle=False)
 
 # Define model
 # model = KAN([3072, 256, 10])
-# model = KanPermutator(image_size=32, patch_size=2, input_dim=3, dim=48, depth=4, segments=4, num_classes=10)
-model = KanMLPMixer(image_size=32, channels=3, patch_size=4, dim=128, depth=4, num_classes=10)
+model = KanPermutator(image_size=32, patch_size=2, input_dim=3, dim=48, depth=4, segments=4, num_classes=10)
+# model = KanMLPMixer(image_size=32, channels=3, patch_size=4, dim=128, depth=4, num_classes=10)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 # Define optimizer
