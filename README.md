@@ -8,7 +8,7 @@ use classification model:
 python train_cifar10.py
 ```
 
-# todo task
+# To do
 low level task(super resolution)
 
 semantic segmentation
