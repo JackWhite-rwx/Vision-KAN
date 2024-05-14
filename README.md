@@ -16,7 +16,6 @@ python kan_fit_test.py.py
 super spectral image task's training code is coming soon!
 
 # To do
-low level task(super resolution)
 
 semantic segmentation
 
