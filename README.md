@@ -8,6 +8,13 @@ use classification model:
 python train_cifar10.py
 ```
 
+use Hyperspectral Image Restoration model:
+```bash
+cd ./fastkan/HyperSpectralmodel
+python kan_fit_test.py.py
+```
+super spectral image task's training code is coming soon!
+
 # To do
 low level task(super resolution)
 
