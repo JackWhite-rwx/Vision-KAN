@@ -2,13 +2,12 @@
 We try to explore the application of KAN in visual tasks
 
 
-
-use classification model:
+we can use "KanMLPMixer","KanPermutator" to get a  classification model:
 ```bash
 python train_cifar10.py
 ```
 
-use Hyperspectral Image Restoration model:
+we can use "(channel)kanSSR","SwinPermutatorKan","SwinConvKan" to get a Hyperspectral Image Restoration model / spectral super resolution model / semantic segmentation model:
 ```bash
 cd ./fastkan/HyperSpectralmodel
 python kan_fit_test.py.py
